@@ -1,20 +1,139 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
+
+<img src="assets/logo.png" height="150px" alt="Tradelayer">
+<br><br>
+	<div class="container">
+	  <div class="row">
+		<div class="col-sm-3">
+
+			<div class="card bg-faded">
+				 <div class="card-block">
+					   BTC Futures
+					   <br>
+					<!--form-->
+
+					<div class="form-group">
+						<label for="exampleInputPassword1">Price</label>
+						<input type="text" class="form-control" id="price" placeholder="Price" [(ngModel)]="price" >
+					  </div>
+
+ 					<div class="form-group">
+						<label for="exampleInputEmail1">Quantity</label>
+						
+						<input type="text" class="form-control" id="qty" aria-describedby="emailHelp" placeholder="Quantity" [(ngModel)]="quantity" >
+			
+					  </div>
+
+
+					   <button type="button" id="buy-button" (click)="buyAction()" class="btn btn-success">Buy</button>
+					   <button type="button" id="sell-button" (click)="sellAction()" class="btn btn-danger">Sell</button>
+					  
+					<!--/form-->
+					   
+				 </div>
+			</div>
+
+		</div>
+		<div class="col-sm-6">
+		  Order Book
+		  
+<ul class="nav nav-tabs nav-justified">
+    <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#panel1" role="tab">27-04-2018(50x)</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#panel2" role="tab">27-05-2018</a>
+    </li>
+
 </ul>
+<!-- Tab panels -->
+			<div class="tab-content card">
+				<!--Panel 1-->
+				<div class="tab-pane fade in show active" id="panel1" role="tabpanel">
+					
+				<br>
+					SELL
+					<table class="table table-bordered">
+					  <thead>
+						<tr>
+
+						  <th scope="col">Price</th>
+						  <th scope="col">Size</th>
+						</tr>
+					  </thead>
+					  
+					<tbody>
+						<tr *ngFor="let sell of sellBook" >
+							<td> <p style="color:#FF0000">{{sell.price | number}}</p> </td>
+							<td>{{sell.quantity | number}}</td>
+							
+						</tr>
+					</tbody>
+					  
+					  
+					</table>
+					
+					
+					<br>
+					BUY
+					<table class="table table-bordered">
+					  <thead>
+						<tr>
+
+						  <th scope="col">Price</th>
+						  <th scope="col">Size</th>
+						</tr>
+					  </thead>
+					  
+					<tbody>
+						<tr *ngFor="let buy of buyBook" >
+							<td> <p style="color:#00FF00">{{buy.price | number}}</p> </td>
+							<td>{{buy.quantity | number}}</td>
+							
+						</tr>
+					</tbody>
+					  
+					  
+					</table>
+					
+					
+
+
+					
+					
+					
+				</div>
+				<!--/.Panel 1-->
+				<!--Panel 2-->
+				<div class="tab-pane fade" id="panel2" role="tabpanel">
+					<br>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus
+						reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione
+						porro voluptate odit minima.</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus
+						reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione
+						porro voluptate odit minima.</p>
+				</div>
+				<!--/.Panel 2-->
+				<!--Panel 3-->
+				<div class="tab-pane fade" id="panel3" role="tabpanel">
+					<br>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus
+						reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione
+						porro voluptate odit minima.</p>
+				</div>
+				<!--/.Panel 3-->
+			</div>
+		  
+		  
+		  
+		</div>
+		<div class="col-sm-3">
+		  Recent Trades
+		</div>
+	  </div>
+	</div>
+
+
+
 
